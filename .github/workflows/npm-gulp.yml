@@ -57,12 +57,9 @@ jobs:
         run: |
           node_modules/.bin/gulp
           node_modules/.bin/gulp lint
-          node_modules/.bin/gulp bundle
+          node_modules/.bin/gulp preview:build
           node_modules/.bin/gulp bundle:pack
           cp build/ui-bundle.zip ./public/
-
-      - run: npm install @octokit/action
-      - run: npm install yaml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

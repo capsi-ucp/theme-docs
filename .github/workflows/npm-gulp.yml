@@ -52,7 +52,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: npm install --quiet --no-progress
+        run: npm install --quiet --no-progress --cache=.cache/npm
       - name: Build
         run: |
           node_modules/.bin/gulp

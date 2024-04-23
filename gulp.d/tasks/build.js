@@ -3,7 +3,7 @@
 const autoprefixer = require('autoprefixer')
 const browserify = require('browserify')
 const concat = require('gulp-concat')
-//const cssnano = require('cssnano')
+const cssnano = require('cssnano')
 const fs = require('fs-extra')
 const imagemin = require('gulp-imagemin')
 const merge = require('merge-stream')
@@ -54,7 +54,7 @@ module.exports = (src, dest, preview) => () => {
     autoprefixer,
     preview
       ? () => {}
-      : (css, result) => postcssPseudoElementFixer(css, result),
+      : (css, result) => cssnano({ preset: 'default' })(css, result),
   ]
 
   return merge(
@@ -128,9 +128,9 @@ function bundle ({ base: basedir, ext: bundleExt = '.bundle.js' }) {
     })
   })
 }
-
+/*
 function postcssPseudoElementFixer (css, result) {
   css.walkRules(/(?:^|[^:]):(?:before|after)/, (rule) => {
     rule.selector = rule.selectors.map((it) => it.replace(/(^|[^:]):(before|after)$/, '$1::$2')).join(',')
   })
-}
+}*/

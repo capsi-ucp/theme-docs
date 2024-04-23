@@ -40,22 +40,22 @@
     "gulp-uglify": "~3.0",
     "handlebars": "~4.7",
     "highlight.js": "^11.9.0",
+    "imagemin-svgo": "^10.0.1",
     "js-yaml": "~3.13",
     "merge-stream": "~2.0",
     "postcss": "^8.4.38",
     "postcss-calc": "~9.0",
     "postcss-custom-properties": "~9.1",
     "postcss-import": "~16.1",
+    "postcss-markdown": "^1.2.0",
+    "postcss-svgo": "^6.0.3",
     "postcss-url": "~10.1",
     "prettier-eslint": "~16.3",
     "require-directory": "~2.1",
     "require-from-string": "~2.0",
     "stylelint": "~13.13",
     "stylelint-config-standard": "~20.0",
+    "svgo": "^2.8.0",
     "vinyl-fs": "~3.0"
-  },
-  "dependencies": {
-    "postcss-markdown": "^1.2.0",
-    "svgo": "^2.8.0"
   }
 }

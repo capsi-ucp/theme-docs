@@ -5,7 +5,8 @@ const browserify = require('browserify')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
 const fs = require('fs-extra')
-//const imagemin = require('gulp-imagemin')
+const imageminGifsicle = require('imagemin-gifsicle');
+const imageminJpegtran = require('imagemin-jpegtran');
 const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -84,7 +85,8 @@ module.exports = (src, dest, preview) => () => {
         ? through()
         : imagemin(
           [
-            imagemin.gifsicle(),
+            imageminGifsicle(),
+            imageminJpegtran(),
             imagemin.optipng(),
             imagemin.svgo({
               plugins: [

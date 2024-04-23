@@ -41,6 +41,8 @@
     "gulp-uglify": "~3.0",
     "handlebars": "~4.7",
     "highlight.js": "^11.9.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
     "imagemin-svgo": "^10.0.1",
     "js-yaml": "~3.13",
     "merge-stream": "~2.0",

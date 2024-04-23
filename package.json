@@ -55,6 +55,7 @@
     "vinyl-fs": "~3.0"
   },
   "dependencies": {
-    "postcss-markdown": "^1.2.0"
+    "postcss-markdown": "^1.2.0",
+    "svgo": "^2.8.0"
   }
 }

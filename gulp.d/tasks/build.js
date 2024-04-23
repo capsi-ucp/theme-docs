@@ -8,6 +8,7 @@ const fs = require('fs-extra')
 const imageminGifsicle = require('imagemin-gifsicle')
 const imageminJpegtran = require('imagemin-jpegtran')
 const imageminOptipng = require('imagemin-optipng')
+const imageminSvgo = require('imagemin-svgo')
 const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -89,7 +90,7 @@ module.exports = (src, dest, preview) => () => {
             imageminGifsicle(),
             imageminJpegtran(),
             imageminOptipng(),
-            imagemin.svgo({
+            imageminSvgo({
               plugins: [
                 { cleanupIDs: { preservePrefixes: ['icon-', 'view-'] } },
                 { removeViewBox: false },

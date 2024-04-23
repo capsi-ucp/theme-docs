@@ -5,8 +5,8 @@ const browserify = require('browserify')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
 const fs = require('fs-extra')
-const imageminGifsicle = require('imagemin-gifsicle');
-const imageminJpegtran = require('imagemin-jpegtran');
+const imageminGifsicle = require('imagemin-gifsicle')
+const imageminJpegtran = require('imagemin-jpegtran')
 const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -52,10 +52,10 @@ module.exports = (src, dest, preview) => () => {
     postcssVar({ preserve: preview }),
     // NOTE to make vars.css available to all top-level stylesheets, use the next line in place of the previous one
     //postcssVar({ importFrom: path.join(src, 'css', 'vars.css'), preserve: preview }),
-    preview ? postcssCalc : () => {}, // cssnano already applies postcssCalc
+    preview ? postcssCalc : () => { }, // cssnano already applies postcssCalc
     autoprefixer,
     preview
-      ? () => {}
+      ? () => { }
       : (css, result) => cssnano({ preset: 'default' }).process(css, result).then(() => postcssPseuFixer(css, result)),
   ]
 

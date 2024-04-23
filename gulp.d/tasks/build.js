@@ -7,6 +7,7 @@ const cssnano = require('cssnano')
 const fs = require('fs-extra')
 const imageminGifsicle = require('imagemin-gifsicle')
 const imageminJpegtran = require('imagemin-jpegtran')
+const imageminOptipng = require('imagemin-optipng')
 const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -87,7 +88,7 @@ module.exports = (src, dest, preview) => () => {
           [
             imageminGifsicle(),
             imageminJpegtran(),
-            imagemin.optipng(),
+            imageminOptipng(),
             imagemin.svgo({
               plugins: [
                 { cleanupIDs: { preservePrefixes: ['icon-', 'view-'] } },

@@ -55,7 +55,8 @@ module.exports = (src, dest, preview) => () => {
     autoprefixer,
     preview
       ? () => {}
-      : (css, result) => cssnano({ preset: 'default' }).process(css, result).then(() => postcssPseudoElementFixer(css, result)),
+      : (css, result) => cssnano({ preset: 'default' }).process(css, result)
+      .then(() => postcssPseudoElementFixer(css, result)),
   ]
 
   return merge(

@@ -55,8 +55,7 @@ module.exports = (src, dest, preview) => () => {
     autoprefixer,
     preview
       ? () => {}
-      : (css, result) => cssnano({ preset: 'default' }).process(css, result)
-      .then(() => postcssPseudoElementFixer(css, result)),
+      : (css, result) => cssnano({ preset: 'default' }).process(css, result).then(() => postcssPseuFixer(css, result)),
   ]
 
   return merge(
@@ -86,7 +85,6 @@ module.exports = (src, dest, preview) => () => {
         : imagemin(
           [
             imagemin.gifsicle(),
-            imagemin.jpegtran(),
             imagemin.optipng(),
             imagemin.svgo({
               plugins: [
@@ -131,7 +129,7 @@ function bundle ({ base: basedir, ext: bundleExt = '.bundle.js' }) {
   })
 }
 
-function postcssPseudoElementFixer (css, result) {
+function postcssPseuFixer (css, result) {
   css.walkRules(/(?:^|[^:]):(?:before|after)/, (rule) => {
     rule.selector = rule.selectors.map((it) => it.replace(/(^|[^:]):(before|after)$/, '$1::$2')).join(',')
   })

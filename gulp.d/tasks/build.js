@@ -5,6 +5,7 @@ const browserify = require('browserify')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
 const fs = require('fs-extra')
+//const imagemin = require('gulp-imagemin')
 const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -50,10 +51,10 @@ module.exports = (src, dest, preview) => () => {
     postcssVar({ preserve: preview }),
     // NOTE to make vars.css available to all top-level stylesheets, use the next line in place of the previous one
     //postcssVar({ importFrom: path.join(src, 'css', 'vars.css'), preserve: preview }),
-    preview ? postcssCalc : () => { }, // cssnano already applies postcssCalc
+    preview ? postcssCalc : () => {}, // cssnano already applies postcssCalc
     autoprefixer,
     preview
-      ? () => { }
+      ? () => {}
       : (css, result) => cssnano({ preset: 'default' }).process(css, result).then(() => postcssPseuFixer(css, result)),
   ]
 
@@ -81,7 +82,19 @@ module.exports = (src, dest, preview) => () => {
     vfs.src('img/**/*.{gif,ico,jpg,png,svg}', opts).pipe(
       preview
         ? through()
-        : imagemin()
+        : imagemin(
+          [
+            imagemin.gifsicle(),
+            imagemin.optipng(),
+            imagemin.svgo({
+              plugins: [
+                { cleanupIDs: { preservePrefixes: ['icon-', 'view-'] } },
+                { removeViewBox: false },
+                { removeDesc: false },
+              ],
+            }),
+          ].reduce((accum, it) => (it ? accum.concat(it) : accum), [])
+        )
     ),
     vfs.src('helpers/*.js', opts),
     vfs.src('layouts/*.hbs', opts),

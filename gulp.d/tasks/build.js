@@ -4,9 +4,9 @@ const autoprefixer = require('autoprefixer')
 const browserify = require('browserify')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
-
 const fs = require('fs-extra')
-const imagemin = require('gulp-imagemin')
+//const imagemin = require('gulp-imagemin')
+const imagemin = import('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
 const path = ospath.posix

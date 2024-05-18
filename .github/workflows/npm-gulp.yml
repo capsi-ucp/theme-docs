@@ -55,8 +55,6 @@ jobs:
         run: npm install --quiet --no-progress --cache=.cache/npm
       - name: Build
         run: |
-          node_modules/.bin/gulp
-          node_modules/.bin/gulp lint
           node_modules/.bin/gulp preview:build
           node_modules/.bin/gulp bundle:pack
           cp build/ui-bundle.zip ./public/

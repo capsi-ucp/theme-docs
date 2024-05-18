@@ -34,5 +34,4 @@ jobs:
         run: npm install --quiet --no-progress
       - name: Build
         run: |
-          node_modules/.bin/gulp
           node_modules/.bin/gulp lint

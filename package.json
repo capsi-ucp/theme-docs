@@ -57,6 +57,6 @@
     "stylelint": "~13.13",
     "stylelint-config-standard": "~20.0",
     "svgo": "^2.8.0",
-    "vinyl-fs": "~3.0"
+    "vinyl-fs": "~4.0"
   }
 }

@@ -45,7 +45,7 @@
     "js-yaml": "~4.1",
     "merge-stream": "~2.0",
     "postcss": "^8.4",
-    "postcss-calc": "~9.0",
+    "postcss-calc": "~10.0",
     "postcss-custom-properties": "~9.1",
     "postcss-import": "~16.1",
     "postcss-markdown": "^1.2.0",

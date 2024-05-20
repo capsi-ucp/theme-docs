@@ -23,7 +23,7 @@
     "browser-pack-flat": "~3.4",
     "browserify": "~17.0",
     "cssnano": "^7.0.1",
-    "eslint": "~6.8",
+    "eslint": "~8.57",
     "eslint-config-standard": "~14.1",
     "eslint-plugin-import": "~2.29",
     "eslint-plugin-node": "~11.1",
